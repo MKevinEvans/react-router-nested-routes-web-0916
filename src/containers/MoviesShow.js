@@ -1,29 +1,27 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
 
-class MoviesShow extends Component {
+class MovieShow extends Component {
 
   render(){
-    const movie = this.props.movie;
+    const movie = this.props.movie
     return (
-      <div className="col-md-8">
+      <div>
         { movie.title }
       </div>
-    )
+      )
   }
 }
+
+
 
 function mapStateToProps(state, ownProps){
-  const movie = state.movies.find(movie => movie.id == ownProps.routeParams.id )
+  const movie = state.movies.find( ( movie )  => movie.id == ownProps.routeParams.id ) 
   if (movie) {
-    return {
-      movie: movie
-    };
+    return {movie: movie}
   } else {
-    return {
-      movie: {}
-    };
+    return {movie: {}}
   }
-
 }
-export default connect(mapStateToProps)(MoviesShow);
+
+export default connect(mapStateToProps)(MovieShow)

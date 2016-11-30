@@ -1,30 +1,29 @@
-import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-import {fetchMovies} from '../actions'
+import { fetchMovies } from '../actions'
 
-import MoviesList from '../components/MoviesList';
+import MoviesList from '../components/MoviesList'
 
-class MoviesPage extends Component {
+class MoviesPage extends Component{
 
   componentDidMount(){
-    this.props.fetchMovies();
+      this.props.fetchMovies()
   }
 
   render(){
     return(
-      <div>
-        <MoviesList movies={this.props.movies} />
-        { this.props.children }
-      </div>)
+        <div>
+          <MoviesList movies={this.props.movies}/>
+          {this.props.children}
+        </div>
+        )
   }
 }
 
 function mapStateToProps(state){
-  return {
-    movies: state.movies
-  }
+  return {movies: state.movies}
 }
 
 function mapDispatchToProps(dispatch){
@@ -33,4 +32,4 @@ function mapDispatchToProps(dispatch){
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MoviePage);
+export default connect(mapStateToProps, mapDispatchToProps)(MoviesPage)
